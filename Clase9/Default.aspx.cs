@@ -30,11 +30,11 @@ namespace Clase9
         public void insertarConsulta(String cedulas, String nombres, String apellidos1, String apellidos2, String edades)
         {
 
-            String consulta = "insert into Persona values(@cedula, @nombre, @apellido1, @apellido2, @edad)";
+            String consulta = "insert into Persona values("+ cedulas +", @nombre, @apellido1, @apellido2, @edad)";
 
             SqlCommand comando = new SqlCommand(consulta);
 
-            SqlParameter cedula = new SqlParameter("@cedula", SqlDbType.Int, 4);
+            SqlParameter cedula = new SqlParameter("@cedula", SqlDbType.Int);
             cedula.Value = cedulas;
             SqlParameter nombre = new SqlParameter("@nombre", SqlDbType.VarChar, 20);
             nombre.Value = nombres;
